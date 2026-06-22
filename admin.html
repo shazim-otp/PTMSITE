@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Portal | PTMHSS Thrikkadeeri</title>
+    <meta name="description" content="Administration portal for PTMHSS Thrikkadeeri to upload, modify, and delete school announcements on the notice board.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="light-theme">
+    
+    <!-- Header / Navbar -->
+    <header class="main-header" id="main-header">
+        <div class="header-container">
+            <a href="/" class="logo-area" id="header-logo-link">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="school-name">PTMHSS Thrikkadeeri</span>
+                    <span class="school-tagline">Palakkad, Kerala</span>
+                </div>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/about" class="nav-link">About</a></li>
+                    <li><a href="/academics" class="nav-link">Academics</a></li>
+                    <li><a href="/facilities" class="nav-link">Facilities</a></li>
+                    <li><a href="/clubs" class="nav-link">Clubs & Activities</a></li>
+                    <li><a href="/gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="/contact" class="nav-link">Contact</a></li>
+                    <li><a href="/admin" class="nav-link active">Staff Portal</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark/light theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <a href="contact.html#enquiry" class="btn btn-primary btn-nav-action" id="nav-enquiry-btn">Admission Enquiry</a>
+                <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <div class="mobile-menu-content">
+            <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="/" class="mobile-nav-link">Home</a></li>
+                    <li><a href="/about" class="mobile-nav-link">About</a></li>
+                    <li><a href="/academics" class="mobile-nav-link">Academics</a></li>
+                    <li><a href="/facilities" class="mobile-nav-link">Facilities</a></li>
+                    <li><a href="/clubs" class="mobile-nav-link">Clubs & Activities</a></li>
+                    <li><a href="/gallery" class="mobile-nav-link">Gallery</a></li>
+                    <li><a href="/contact" class="mobile-nav-link">Contact</a></li>
+                    <li><a href="/admin" class="mobile-nav-link">Staff Portal</a></li>
+                </ul>
+            </nav>
+            <a href="contact.html#enquiry" class="btn btn-primary mobile-menu-cta" id="mobile-nav-enquiry-btn">Admission Enquiry</a>
+        </div>
+    </div>
+
+    <main style="padding-top: 5.5rem;">
+        
+        <!-- Page Banner -->
+        <section class="ticker-section" style="padding: 1.2rem 0; background-color: var(--clr-primary);">
+            <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <h1 style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: #ffffff;">Staff Announcement Portal</h1>
+                <span style="font-size: 0.9rem; color: var(--clr-accent); font-weight: 600;">
+                    <a href="/" style="color: inherit; text-decoration: none;">Home</a> &nbsp;/&nbsp; Staff Portal
+                </span>
+            </div>
+        </section>
+
+        <!-- Passcode Login Overlay -->
+        <div id="admin-login-overlay">
+            <div class="container" style="display: flex; justify-content: center; align-items: center; min-height: 60vh; padding: 4rem 2rem;">
+                <div class="enquiry-card" style="grid-template-columns: 1fr; max-width: 480px; width: 100%; border-radius: var(--border-radius-md);">
+                    <div class="enquiry-form-wrapper" style="padding: 3.5rem 2.5rem; text-align: center; width: 100%;">
+                        <div style="font-size: 3.5rem; color: var(--clr-primary); margin-bottom: 1rem;">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <h2 style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: var(--clr-primary); margin-bottom: 0.5rem;">Staff Login Portal</h2>
+                        <p style="color: var(--clr-text-muted); font-size: 0.9rem; margin-bottom: 2rem;">Please enter the administrative passcode to access the notice board editor.</p>
+                        
+                        <div class="upload-success-msg" id="admin-login-error" style="display: none; background-color: #fef2f2; color: #ef4444; border-color: #fca5a5; margin-bottom: 1.5rem; text-align: left; padding: 0.8rem 1rem; font-size: 0.85rem;">
+                            <i class="fa-solid fa-triangle-exclamation" style="margin-right: 0.4rem;"></i>
+                            <span>Incorrect passcode. Please try again.</span>
+                        </div>
+
+                        <form id="admin-login-form" novalidate>
+                            <div class="form-group" style="text-align: left;">
+                                <label for="admin-passcode">Administrative Passcode <span class="required">*</span></label>
+                                <input type="password" id="admin-passcode" required placeholder="Enter passcode..." style="text-align: center; font-size: 1.1rem; letter-spacing: 2px;">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" style="margin-top: 1.5rem;">
+                                Access Portal <i class="fa-solid fa-key" style="margin-left: 0.3rem;"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard Panel (Secured) -->
+        <div id="admin-dashboard" class="hidden">
+            <section class="section-padding">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <span class="subtitle">Management Panel</span>
+                        <h2 class="section-title">Compose & Manage Announcements</h2>
+                        <p class="header-para">Upload school news, circulars, or emergency alerts that instantly cycle in the live announcements ticker on the Home page.</p>
+                        <div class="divider"></div>
+                    </div>
+
+                    <div class="admin-grid">
+                        <!-- Compose Card -->
+                        <div class="enquiry-card" style="grid-template-columns: 1fr; border-radius: var(--border-radius-md);">
+                            <div class="enquiry-form-wrapper" style="padding: 2.5rem;">
+                                <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-pen-to-square"></i> Compose Announcement</h3>
+                                
+                                <!-- Success Notice -->
+                                <div class="upload-success-msg" id="upload-success-msg">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <span>Announcement published successfully!</span>
+                                </div>
+
+                                <form id="upload-announcement-form" novalidate>
+                                    <div class="form-group">
+                                        <label for="announcement-text">Announcement Message <span class="required">*</span></label>
+                                        <textarea id="announcement-text" rows="5" required placeholder="Type the school notice or alert here..."></textarea>
+                                        <span class="error-msg" id="err-announcement-text">Announcement message cannot be empty.</span>
+                                    </div>
+
+                                    <div class="form-group" style="flex-direction: row; align-items: center; gap: 0.6rem; margin: 1.5rem 0;">
+                                        <input type="checkbox" id="announcement-urgent" style="width: auto; cursor: pointer;">
+                                        <label for="announcement-urgent" style="margin-bottom: 0; cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+                                            Mark as Urgent (Prepend with 🔴)
+                                        </label>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary btn-block">
+                                        Publish Announcement <i class="fa-solid fa-bullhorn" style="margin-left: 0.3rem;"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Active List Card -->
+                        <div class="enquiry-card" style="grid-template-columns: 1fr; border-radius: var(--border-radius-md); background-color: var(--clr-bg-card);">
+                            <div class="enquiry-form-wrapper" style="padding: 2.5rem; width: 100%;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                                    <h3 style="font-size: 1.5rem; margin-bottom: 0;"><i class="fa-solid fa-list-check"></i> Active Notice Board</h3>
+                                    <div style="display: flex; gap: 0.6rem;">
+                                        <button class="btn btn-secondary" id="reset-announcements-btn" style="padding: 0.4rem 1rem; font-size: 0.82rem; border-color: var(--clr-border); color: var(--clr-text);">
+                                            <i class="fa-solid fa-rotate-left"></i> Restore Defaults
+                                        </button>
+                                        <button class="btn btn-secondary" id="admin-logout-btn" style="padding: 0.4rem 1rem; font-size: 0.82rem; border-color: #ef4444; color: #ef4444;">
+                                            <i class="fa-solid fa-right-from-bracket"></i> Log Out
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <ul id="admin-announcements-list">
+                                    <!-- JS Populated -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Address Area -->
+                <div class="footer-widget address-widget">
+                    <div class="footer-logo">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>PTMHSS Thrikkadeeri</span>
+                    </div>
+                    <p class="school-address">
+                        Thrikkadeeri Panchayat, Ottapalam Taluk,<br>
+                        Palakkad District, Kerala, India - 679502
+                    </p>
+                    <p class="udise-code">
+                        <strong>UDISE School Code:</strong> 32060800513
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/ptmhss_trikkaderi_official/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://schoolwiki.in/PTM_HSS_Thrikkadeeri" target="_blank" aria-label="SchoolWiki"><i class="fa-solid fa-circle-info"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact details -->
+                <div class="footer-widget contact-widget">
+                    <h3>Contact Desk</h3>
+                    <div class="contact-links">
+                        <div class="contact-row">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <span>High School (HS):</span>
+                                <a href="tel:04662380351">0466 2380351</a>
+                            </div>
+                        </div>
+                        <div class="contact-row">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <span>Higher Secondary (HSE):</span>
+                                <a href="tel:04662380352">0466 2380352</a>
+                            </div>
+                        </div>
+                        <div class="contact-row">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <span>HS Email:</span>
+                                <a href="mailto:peeteeyemhs@gmail.com">peeteeyemhs@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-row">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <span>HSE Email:</span>
+                                <a href="mailto:ptm9137@gmail.com">ptm9137@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map / Quick Links -->
+                <div class="footer-widget links-widget">
+                    <h3>Locate Us</h3>
+                    <div class="map-card">
+                        <div class="map-icon">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <p>Located in the serene greens of Thrikkadeeri near Ottapalam, Palakkad District.</p>
+                        <a href="https://maps.google.com/?q=PTM+HSS+Thrikkadeeri+Palakkad+Kerala" target="_blank" class="map-btn">
+                            Get Directions <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 PTM Higher Secondary School Thrikkadeeri. All Rights Reserved. | Government-Aided Institution</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="index.js"></script>
+</body>
+</html>
+

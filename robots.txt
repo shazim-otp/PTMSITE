@@ -1,0 +1,18 @@
+﻿# robots.txt for PTMHSS Thrikkadeeri
+# https://ptmhss.in
+
+User-agent: *
+Allow: /
+
+# Block admin/staff portal from indexing
+Disallow: /admin.html
+
+# Block assets directory from indexing (optional - images still get indexed via HTML)
+# Disallow: /assets/
+
+# Sitemap location
+Sitemap: https://ptmhss.in/sitemap.xml
+
+# Crawl-delay (optional, be gentle with the server)
+Crawl-delay: 5
+
